@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    test_my_site |  Aoei
+    css实现一个斜边 |  Aoei
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-test-my-site" class="article article-type-post" itemscope
+  <article id="post-css实现一个斜边" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  test_my_site
+  css实现一个斜边
 </h1>
   
 
@@ -48,8 +48,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/14/test-my-site/" class="article-date">
-  <time datetime="2020-03-14T13:48:52.000Z" itemprop="datePublished">2020-03-14</time>
+      <a href="/2020/03/16/css%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/" class="article-date">
+  <time datetime="2020-03-16T09:05:07.000Z" itemprop="datePublished">2020-03-16</time>
 </a>
       
       
@@ -59,7 +59,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0字</span>
+            <span class="post-count">411字</span>
         </span>
     </span>
 
@@ -93,7 +93,25 @@
       
 
       
-      
+      <p>遇到这样一个问题，如何用<code>css</code>实现一个下面的效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/3/16/170e3051eba99ee7?w=1056&h=417&f=png&s=6264" alt=""></p>
+<p>看着很复杂的问题，其实很简单，我们知道利用<code>css</code>的<code>border</code>是可以画出一个三角形的，例如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test-wrap"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test-wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">50px</span> solid red;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">50px</span> solid blue;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">50px</span> solid green;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2020/3/16/170e30578fe86bf0?w=562&h=483&f=png&s=6056" alt=""></p>
+<p>我们也可以通过不同的组合形式，例如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test-wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">50px</span> solid red;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2020/3/16/170e3067a3286bd4?w=219&h=216&f=png&s=2080" alt=""><br>如果要实现在页面中展示一个三角形，那么我们可以稍微修改下代码，将<code>border-top</code>设置为<code>transparent</code>，就可以实现下面的效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test-wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2020/3/16/170e306b0ff321ca?w=212&h=201&f=png&s=1369" alt=""></p>
+<p>了解了这个方法之后我们就可以转换一下思路来完成之前的问题，如何画出一个有斜线的图形，我们可以同时画两个三角，将两个三角叠加，下面一层的颜色设置为图形的<code>border</code>颜色，上面一层的三角设置为北京颜色，将下面的三角的尺寸设置的比上面的要大<code>1px</code>（可以根据<code>border</code>的宽度适当调整）就可以实现上面的效果</p>
+<p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box-wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer-triangle"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner-triangle"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.outer-triangle</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">51px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">65px</span> solid black;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-triangle</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">64px</span> solid <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -162,7 +180,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/14/test-my-site/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/16/css%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -178,19 +196,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/14/%E5%8D%9A%E5%AE%A2%E5%90%8D%E5%AD%97/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            博客名字
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/03/14/hello-world/" class="article-nav-link">
+      <a href="/2020/03/15/JQuery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">JQuery源码解析_整体结构</div>
       </a>
     
   </nav>
