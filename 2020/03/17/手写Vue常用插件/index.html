@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Archives |  Aoei
+    手写Vue常用插件 |  Aoei
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,95 +31,241 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article class="articles">
+  <article id="post-手写Vue常用插件" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">Archives</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/17/%E6%89%8B%E5%86%99Vue%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  <time datetime="2020-03-17T10:10:16.000Z" itemprop="datePublished">03/17</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/03/17/%E6%89%8B%E5%86%99Vue%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/"
-    >手写Vue常用插件</a
-  >
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  手写Vue常用插件
+</h1>
   
 
     </header>
     
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/16/css%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/" class="archive-article-date">
-  <time datetime="2020-03-16T09:05:07.000Z" itemprop="datePublished">03/16</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/03/16/css%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/"
-    >css实现一个斜边</a
-  >
-</h2>
-  
 
-    </header>
     
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/15/JQuery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  <time datetime="2020-03-15T15:27:45.000Z" itemprop="datePublished">03/15</time>
+    <div class="article-meta">
+      <a href="/2020/03/17/%E6%89%8B%E5%86%99Vue%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" class="article-date">
+  <time datetime="2020-03-17T10:10:16.000Z" itemprop="datePublished">2020-03-17</time>
 </a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/03/15/JQuery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84/"
-    >JQuery源码解析_整体结构</a
-  >
-</h2>
-  
-
-    </header>
-    
-    
-  </div>
-</article>
       
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">126字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1分钟</span>
+        </span>
+    </span>
+</div>
+
       
     </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="background-template-项目"><a href="#background-template-项目" class="headerlink" title="background_template 项目"></a>background_template 项目</h2><p>项目采用<code>vue</code>+<code>typescript</code>，模仿<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">element-ui</a>实现了一些常用的插件，样式基本参考了<code>element</code>框架，实现了部分常用的功能</p>
+<ul>
+<li><code>input</code>输入框</li>
+<li><code>Message</code>消息提示</li>
+<li><code>sidebar</code>侧边导航栏</li>
+<li><code>Table</code>表格展示</li>
+<li><code>Dialog</code>弹窗</li>
+<li><code>Button</code>按钮</li>
+<li><code>Card</code>展示面板</li>
+<li><code>DatePicker</code>日期选择器</li>
+<li><code>Dropdown</code>下拉菜单</li>
+<li><code>Select</code>选择器</li>
+<li><code>Pagination</code>分页器</li>
+</ul>
+<p>项目地址：<a href="https://github.com/A-oei/background_template" target="_blank" rel="noopener">https://github.com/A-oei/background_template</a></p>
+<p>下载项目后依次执行以下命令可以查看效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/17/%E6%89%8B%E5%86%99Vue%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+
+    </footer>
+
   </div>
+
   
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/03/16/css%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">css实现一个斜边</div>
+      </a>
+    
+  </nav>
+
+
   
 
   
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
 </section>
       <footer class="footer">
   <div class="outer">
@@ -262,6 +408,30 @@
 </script>
 
 
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
 
 
 
