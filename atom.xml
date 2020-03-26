@@ -40,6 +40,29 @@
   </entry>
   
   <entry>
+    <title>讲讲flex布局方案</title>
+    <link href="http://yoursite.com/2020/03/26/%E8%AE%B2%E8%AE%B2flex%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2020/03/26/%E8%AE%B2%E8%AE%B2flex%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/</id>
+    <published>2020-03-26T09:19:58.000Z</published>
+    <updated>2020-03-26T14:14:30.271Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;code&gt;flex&lt;/code&gt;布局也叫弹性盒子，是由W3C提出的一种新的布局方式，也是目前比较主流的布局方案之一，目前兼容IE10+以上的浏览器，任何一个盒子包括行内元素都可以指定为&lt;code&gt;flex&lt;/code&gt;布局，只需要在它的父元素设置&lt;code&gt;display
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>JQuery源码</title>
     <link href="http://yoursite.com/2020/03/23/JQuery%E6%BA%90%E7%A0%81/"/>
     <id>http://yoursite.com/2020/03/23/JQuery%E6%BA%90%E7%A0%81/</id>
