@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>讲讲flex布局方案</title>
+    <url>/2020/03/26/flex%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88%E4%BB%A5%E5%8F%8Aflex%E4%B8%AD%E7%9A%84margin/</url>
+    <content><![CDATA[<p><code>flex</code>布局也叫弹性盒子，是由W3C提出的一种新的布局方式，也是目前比较主流的布局方案之一，目前兼容IE10+以上的浏览器，任何一个盒子包括行内元素都可以指定为<code>flex</code>布局，只需要在它的父元素设置<code>display:flex;</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，在设置了flex布局以后，其所有的子元素的<code>float</code>，<code>clear</code>和<code>vertical- align</code>属性都将失效</p>
+<p>父元素设置<code>flex</code>后，会成为<code>flex</code><strong>容器</strong>，它的所有子元素默认称为<strong>容器成员</strong>，容器默认存在两根轴线，水平的<strong>主轴线</strong>和垂直的<strong>交叉轴线</strong></p>
+<p><strong>下面的示例中我们以box代表容器，item表示子元素</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2808208-76920500e99115d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flex初始状态.png"></p>
+<p>在元素设置<code>display:flex;</code>后，会有6个属性               </p>
+<h4 id="box"><a href="#box" class="headerlink" title="box"></a>box</h4><blockquote>
+<p><strong>flex- direction</strong></p>
+<p><strong>flex-wrap</strong></p>
+<p><strong>flex-flow</strong></p>
+<p><strong>justify- content</strong></p>
+<p><strong>align-items</strong></p>
+<p><strong>align-content</strong></p>
+</blockquote>
+<p>下面我们来依次分析这几个属性</p>
+<h5 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h5><p>该属性决定<strong>主轴</strong>的方向，也就是项目的排列方向，它有4个参数 ，<strong>主轴方向改变后交叉轴的方向也会改变</strong></p>
+<ul>
+<li><p><code>row</code>：这个是默认值，默认主轴为水平方向，起点在左端</p>
+</li>
+<li><p><code>row-reverse</code>：主轴为水平方向，起点在右端</p>
+</li>
+<li><p><code>column</code>：主轴在垂直方向，起点在上端</p>
+</li>
+<li><p><code>column-reverse</code>：主轴在垂直方向，起点在下端</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2808208-6e6c1e3f79e823a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flex-direction.png"></p>
+</li>
+</ul>
+<h5 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h5><p>该属性决定子元素如果不在一条轴线上如何换行</p>
+<ul>
+<li><code>nowrap</code>：该属性是默认属性，不换行，如果我们设定的<code>item</code>大小在一行上回超出<code>box</code>，那么不会溢出也不会换行，而是<code>item</code>会变形，从而适配当前<code>box</code></li>
+<li><code>wrap</code>：正常换行，在第一行正下方</li>
+<li><code>wrap-reverse</code>：在第一行正上方换行，第一行会默认从底部开始<br><img src="http://upload-images.jianshu.io/upload_images/2808208-f05d37d7a20feaf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="wrap.png"></li>
+</ul>
+<h5 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h5><p>该属性是<code>flex-direction</code>和<code>flex-wrap</code>属性的简写，默认值是<code>row  nowrap</code>;</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>:row nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h5><p>该属性定义了项目在主轴上的对齐方式</p>
+<ul>
+<li><p><code>flex-start</code>：该属性是默认值，从左端对齐</p>
+</li>
+<li><p><code>flex-end</code>：该属性规定从右端对齐</p>
+</li>
+<li><p><code>center</code>：该属性规定居中对齐</p>
+</li>
+<li><p><code>space- between</code>：该属性规定两端对齐，子元素之间的间隔都相等</p>
+</li>
+<li><p><code>space- around</code>：该属性规定每个子元素的两侧的间隔相等，所以子元素之间的间隔比子元素与边框之间的间隔大一倍</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2808208-64788779311dd113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="justify-content.png"></p>
+<h5 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h5><p>该属性定义项目在交叉轴上如何对齐</p>
+<ul>
+<li><code>flex-start</code>：交叉轴的起点对齐</li>
+<li><code>flex-end</code>：交叉轴的终点对齐</li>
+<li><code>center</code>：交叉轴的中点对齐</li>
+<li><code>baseline</code>：子元素的第一行文字的基线对齐</li>
+<li><code>stretch</code>：默认值，如果子元素未设置高度或auto，将占满整个父容器的高度<br><img src="http://upload-images.jianshu.io/upload_images/2808208-8ebaf9409330bdc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="align-items.png"></li>
+</ul>
+<h5 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h5><p>定义了多根轴线的对齐方式，如果父元素只有一根轴线，该属性不起作用</p>
+<ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐</li>
+<li><code>center</code>：与交叉轴的中点对齐</li>
+<li><code>space- between</code>：与交叉轴的两端对齐，轴线之间的间隔平均分布</li>
+<li><code>space-around</code>：每跟轴线之间的距离相等所以轴线之间的间隔比与边框线之间的间隔大一倍</li>
+<li><code>st retch</code>：默认值，轴线占满整个交叉线</li>
+</ul>
+<h4 id="item"><a href="#item" class="headerlink" title="item"></a>item</h4><p>在父元素设置了<code>flex</code>属性后，子元素会有以下6个属性</p>
+<blockquote>
+<p>order</p>
+<p>flex-grow</p>
+<p>flex-shrink</p>
+<p>flex- basis</p>
+<p>flex</p>
+<p>align-self</p>
+</blockquote>
+<p>下面我们来依次了解这些属性</p>
+<h5 id="order"><a href="#order" class="headerlink" title="order"></a>order</h5><p>该属性定义项目的排列顺序，数值越小，排列越靠前，默认为<code>0</code><br><img src="http://upload-images.jianshu.io/upload_images/2808208-2550baf0c4d21716.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="order.png"></p>
+<h5 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h5><p>该属性定义项目的放大比例，默认为<code>0</code>，即使存在剩余空间，也不放大，如果所有子元素都设置该属性为<code>1</code>，那么他们将会等分剩余的空间，如果一个其中一个子元素的<code>flex-grow</code>属性设置为<code>2</code>，那么它将会比其他的子元素多一倍<br><img src="http://upload-images.jianshu.io/upload_images/2808208-18a0ae845f220fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="flex-grow.png"></p>
+<h5 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h5><p>该属性定义了项目的缩小比例，默认为<code>1</code>，也就是说，如果空间不足，该项目将会缩小，如果所有项目的缩小比例都为<code>1</code>，那么如果空间不足，所有项目都将会等比例缩小，如果其中一个设置为<code>0</code>，那么在空间不足的情况下，其它项目会缩小， 该项目不会缩小，<strong>该属性设置负值无效</strong></p>
+<h5 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex- basis"></a>flex- basis</h5><p>属性定义在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余的空间，它的默认值为<code>auto</code>，即项目本来的大小，该属性可以设置和<code>width</code>或<code>ength</code>属性一样的值，那么项目将占据固定的空间</p>
+<h5 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h5><p>该属性是<code>flex- grow</code>，<code>flex-shrink</code>和<code>flex- basis</code>的简写，默认值为<code>0 1 auto</code>，后两个属性可选</p>
+<h5 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h5><p>该属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 <code>align-items</code>属性，默认值为<code>auto</code>，表示继承父元素的 <code>align-items</code>属性，如果没有父元素，那么等同于 <code>stretch</code>，  该属性可能取6个值，除了<code>auto</code>，其他都与<code>align-items</code>属性完全一致</p>
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2808208-37e05c9620ffe941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="align-self.png"></p>
+<p><strong>测试一个简单的例子：</strong></p>
+<p>如何使用<code>flex</code>实现一个左侧固定右侧跟随屏幕大小变化的样式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&gt;<span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: greenyellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<p><img src="C:%5CUsers%5C69176%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200326213901793.png" alt="image-20200326213901793"></p>
+<h4 id="flex配合margin使用"><a href="#flex配合margin使用" class="headerlink" title="flex配合margin使用"></a>flex配合margin使用</h4><p>关于<code>flex</code>中的<code>margin</code>值，这个很少在文档中见到，简单来说就是，<strong>在<code>flex</code>布局中，子元素的<code>margin</code>值为<code>auto</code>时，伸缩包含的剩余空间将会分配到<code>item</code>的外边距<code>margin</code>上</strong>，这么讲可能有点抽象，我们可以通过例子来理解</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper wrapper-1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper wrapper-2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper wrapper-3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-5"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper wrapper-4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-5"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper wrapper-5"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-5"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">50px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span>&gt;<span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid purple;</span><br><span class="line">	<span class="attribute">background-color</span>: pink;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-1</span> <span class="selector-class">.item-3</span> &#123;</span><br><span class="line">	<span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-2</span> <span class="selector-class">.item-1</span> &#123;</span><br><span class="line">	<span class="attribute">margin-right</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-3</span>&gt;<span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">margin</span>: auto;</span><br><span class="line">	<span class="comment">/*效果同 justify-content：space-around*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-4</span>&gt;<span class="selector-class">.item-3</span> &#123;</span><br><span class="line">	<span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-5</span>&gt;<span class="selector-class">.item-2</span> &#123;</span><br><span class="line">	<span class="attribute">margin-left</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-5</span>&gt;<span class="selector-class">.item-3</span> &#123;</span><br><span class="line">	<span class="attribute">margin-right</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-6</span> <span class="selector-class">.item-1</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper-6</span> <span class="selector-class">.item-2</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/3/26/1711722dbdb57847?w=1915&h=480&f=png&s=9919" alt="微信图片_20200326215619.png"></p>
+<p>demo实在不想写了，参考的这里的链接<a href="https://www.cnblogs.com/chaoyueqi/p/11364268.html" target="_blank" rel="noopener">demo示例参考</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>JQuery源码</title>
     <url>/2020/03/23/JQuery%E6%BA%90%E7%A0%81/</url>
     <content><![CDATA[<p>目前来说<code>jquery</code>现在已经不能算是一个特别主流的框架，在现在数据驱动的理念下，<code>Vue</code>、<code>React</code>是目前的热门常用框架，但是个人感觉，对于刚入门的同学来说，了解<code>jquery</code>的源码对于我们更加深入的理解<code>javscript</code>语言有极大的帮助，对于大部分长期使用如<code>Vue</code>框架的开发者来说，可能很多人对原生<code>JavaScript</code>的开发已经生疏了，适当回顾<code>JQuery</code>的源码其实对我们对原生<code>JavaScript</code>的理解更加完善</p>
