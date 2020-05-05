@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>React使用手淘布局方案</title>
+    <url>/2020/05/05/React%E4%BD%BF%E7%94%A8%E6%89%8B%E6%B7%98%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88-2/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>React使用手淘布局方案</title>
+    <url>/2020/05/05/React%E4%BD%BF%E7%94%A8%E6%89%8B%E6%B7%98%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88-1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>React使用手淘布局方案</title>
+    <url>/2020/05/05/React%E4%BD%BF%E7%94%A8%E6%89%8B%E6%B7%98%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>React使用手淘VW布局方案</title>
+    <url>/2020/05/05/React%E4%BD%BF%E7%94%A8%E6%89%8B%E6%B7%98VW%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>React中使用手淘VW布局方案</title>
+    <url>/2020/05/05/React%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%89%8B%E6%B7%98VW%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<ul>
+<li><p>参考</p>
+<p><a href="https://www.w3cplus.com/mobile/vw-layout-in-vue.html" target="_blank" rel="noopener">大漠手淘vm布局方案</a></p>
+</li>
+</ul>
+<ol>
+<li><p>下载必须文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss-cssnext postcss-viewport-units cssnano</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>config&gt;&gt;webpack.config.js</code>中定义变量</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//配置vw适配方案</span></span><br><span class="line"><span class="keyword">const</span> postcssAspectRatioMini = <span class="built_in">require</span>(<span class="string">'postcss-aspect-ratio-mini'</span>);</span><br><span class="line"><span class="keyword">const</span> postcssPxToViewport = <span class="built_in">require</span>(<span class="string">'postcss-px-to-viewport'</span>);</span><br><span class="line"><span class="keyword">const</span> postcssWriteSvg = <span class="built_in">require</span>(<span class="string">'postcss-write-svg'</span>);</span><br><span class="line"><span class="keyword">const</span> postcssCssnext = <span class="built_in">require</span>(<span class="string">'postcss-cssnext'</span>);</span><br><span class="line"><span class="keyword">const</span> postcssViewportUnits = <span class="built_in">require</span>(<span class="string">'postcss-viewport-units'</span>);</span><br><span class="line"><span class="keyword">const</span> cssnano = <span class="built_in">require</span>(<span class="string">'cssnano'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>config&gt;&gt;webpack.config.js</code>中进行配置</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">loader: <span class="built_in">require</span>.resolve(<span class="string">'postcss-loader'</span>),</span><br><span class="line">options: &#123;</span><br><span class="line">    ident: <span class="string">'postcss'</span>,</span><br><span class="line">    plugins: <span class="function"><span class="params">()</span> =&gt;</span> [</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'postcss-flexbugs-fixes'</span>),</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'postcss-preset-env'</span>)(&#123;</span><br><span class="line">            autoprefixer: &#123;</span><br><span class="line">                flexbox: <span class="string">'no-2009'</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            stage: <span class="number">3</span>,</span><br><span class="line">        &#125;),</span><br><span class="line">        postcssNormalize(),</span><br><span class="line">        <span class="comment">//配置vw适配方案 start</span></span><br><span class="line">        </span><br><span class="line">        postcssAspectRatioMini(&#123;&#125;),<span class="comment">// 用来处理元素容器宽高比</span></span><br><span class="line">        postcssPxToViewport(&#123;</span><br><span class="line">            viewportWidth: <span class="number">750</span>, <span class="comment">// // 视窗的宽度，对应我们设计稿的宽度，一般是750</span></span><br><span class="line">            viewportHeight: <span class="number">1334</span>, <span class="comment">// 视窗的高度，根据750设备的宽度来指定，一般指定1334，也可以不配置</span></span><br><span class="line">            unitPrecision: <span class="number">3</span>, <span class="comment">// 指定'px'转换为视窗单位值得小数位数（很多时候无法整除）</span></span><br><span class="line">            viewportUnit: <span class="string">'vw'</span>,  <span class="comment">//指定需要转换成的视窗单位,建议使用vw</span></span><br><span class="line">            selectorBlackList: [<span class="string">'.ignore'</span>], <span class="comment">//指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span></span><br><span class="line">            minPixelValue: <span class="number">1</span>, <span class="comment">// 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值</span></span><br><span class="line">            mediaQuery: <span class="literal">false</span> <span class="comment">// 允许在媒体查询中转换`px</span></span><br><span class="line">        &#125;),</span><br><span class="line">        postcssWriteSvg(&#123; <span class="comment">// 用来处理移动端1px的解决方案</span></span><br><span class="line">            utf8: <span class="literal">false</span></span><br><span class="line">        &#125;),</span><br><span class="line">        postcssCssnext(&#123;&#125;),<span class="comment">// 让项目使用CSS未来特性 并对其做兼容性处理</span></span><br><span class="line">        postcssViewportUnits(&#123;&#125;), <span class="comment">//给CSS的属性添加content的属性 配合viewport-units-buggyfill解决个别手机不支持vw</span></span><br><span class="line">        cssnano(&#123; <span class="comment">//压缩和清理CSS代码</span></span><br><span class="line">            <span class="string">"cssnano-preset-advanced"</span>: &#123;</span><br><span class="line">                zindex: <span class="literal">false</span>,</span><br><span class="line">                autoprefixer: <span class="literal">false</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//配置vw适配方案 end</span></span><br><span class="line">    ],</span><br><span class="line">    sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>在配置完成之后，重新执行<code>npm run statr</code>命令，使用时候直接使用px单位即可，插件会自动将px转换为vw，需要注意的是，<strong>如果我们想要使用px</strong>，那么可以在<code>selectorBlackList</code>中进行配置，在代码中写入配置的变量名会被自动忽略，不被进行转换，例如：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">&gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  &amp;<span class="selector-class">.ignore</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">3px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>纯CSS实现一个斜边</title>
     <url>/2020/03/30/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%9C%E8%BE%B9/</url>
     <content><![CDATA[<p>遇到这样一个问题，如何用<code>css</code>实现一个下面的效果:</p>
